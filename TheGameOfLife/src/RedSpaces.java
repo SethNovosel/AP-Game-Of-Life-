@@ -15,4 +15,9 @@ public void buyHouse()
 {
 
 }
+@Override
+public void buyStock()
+{
+	
+}
 }

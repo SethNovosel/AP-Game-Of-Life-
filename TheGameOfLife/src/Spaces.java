@@ -2,11 +2,13 @@ import java.awt.Color;
 import java.util.ArrayList;
 public class Spaces 
 {
+	static ArrayList<Spaces> spaces = new ArrayList<Spaces>();
 	private String name;
 	private int x;
 	private int y;
 	public Spaces(String n, int x, int y)
 	{
+	name = n;
 	x = x;
 	y = y;
 	}
@@ -30,10 +32,17 @@ public void buyHouse()
 {
 
 }
+public void buyStock() 
+{
+		
+}
+public void tradeSalary() 
+{
+	
+}
 
 public static void spaces()
 	{
-	ArrayList<Spaces> spaces = new ArrayList<Spaces>();
 	//1
 	spaces.add(new Spaces("Start", 0,0));
 	spaces.add(new Spaces("Normal Space",75,0));
@@ -85,6 +94,21 @@ public static void spaces()
 	spaces.add(new Spaces("Life Space",340,555));
 	spaces.add(new Spaces("Millionaire Estates",465,525));
 	spaces.add(new Spaces("Countryside Acrers",465,525));
+	}
+//public int getX()
+//	{
+//	return this.x = x;
+//	}
+//public int getY()
+//	{
+//	return this.y = y;
+//	}
+public static void play()
+	{
+	int location = 0;
+	Spinner.spin = location;
+	location++;
+	System.out.println("You landed on " + spaces.get(location));
 	}
 }
 

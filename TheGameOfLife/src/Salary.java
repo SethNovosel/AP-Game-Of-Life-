@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class Salary extends Player 
+public class Salary extends Player
 {
 static ArrayList<Salary> salaries = new ArrayList<Salary>();
 private int salary;
@@ -21,10 +21,10 @@ salaries.add(new Salary(40000, 15000));
 salaries.add(new Salary(30000, 10000));
 salaries.add(new Salary(20000, 5000));
 }
-private int randomSalary = (int) (Math.random() * 10);
 @Override
 public void playerSalary()
 {
+int randomSalary = (int) (Math.random() * 10);
 System.out.println("Your salary is " + salaries.get(randomSalary));
 }
 }
