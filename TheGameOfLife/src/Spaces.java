@@ -41,7 +41,7 @@ public void tradeSalary()
 	
 }
 
-public static void spaces()
+public static void fillSpaces()
 	{
 	//1
 	spaces.add(new Spaces("Start", 0,0));
@@ -95,20 +95,17 @@ public static void spaces()
 	spaces.add(new Spaces("Millionaire Estates",465,525));
 	spaces.add(new Spaces("Countryside Acrers",465,525));
 	}
-//public int getX()
-//	{
-//	return this.x = x;
-//	}
-//public int getY()
-//	{
-//	return this.y = y;
-//	}
-public static void play()
+public String getName()
 	{
-	int location = 0;
-	Spinner.spin = location;
-	location++;
-	System.out.println("You landed on " + spaces.get(location));
+	return this.name = name;
+	}
+public int getX()
+	{
+	return this.x = x;
+	}
+public int getY()
+	{
+	return this.y = y;
 	}
 }
 

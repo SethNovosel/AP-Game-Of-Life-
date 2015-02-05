@@ -1,17 +1,28 @@
 //Seth Novosel
+import java.util.Scanner;
 public class TheGameOfLifeRunner 
 {
+static int location = 0;
 public static void main(String[] args) 
 {
-Spaces[] space = new Spaces[10];
-Player[] player = new Player[10];
-Spinner.playerSpin();
-//space[0] = new Retire();
-player[0] = new Salary(0, 0);
-for(int i = 0; i < 100; i++)
+int spin = Spinner.playerSpin();
+Spaces.fillSpaces();
+//System.out.println("You are at " + Spaces.spaces.get(location).getName());
+move(spin);
+}
+public static void move(int s)
+{
+Scanner userInput = new Scanner(System.in);
+System.out.println("You landed on " + Spaces.spaces.get(location).getName());
+location += s;
+System.out.println("You landed on " + Spaces.spaces.get(location).getName());
+String answer = userInput.nextLine();
+if(answer == "")
 	{
-	space[i].play();
-	player[i].playerSalary();
+	Spinner.playerSpin();
+	System.out.println("You landed on " + Spaces.spaces.get(location).getName());
+	//location = Spinner.spin;
+	location++;
 	}
 }
 }
