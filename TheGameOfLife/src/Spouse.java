@@ -1,4 +1,4 @@
 public interface Spouse 
-{
-public abstract void hasKids();
-}
+	{
+	public abstract void hasKids();
+	}
