@@ -16,7 +16,7 @@ public class TheGameOfLifeRunner
 			System.out.println("You landed on " + Spaces.spaces.get(location).getName());
 			if(Spaces.spaces.get(location).getName().equals("Payday"))
 				{
-				System.out.println("Yes");
+				//Spaces.payday();
 				}
 			location += s;
 			}

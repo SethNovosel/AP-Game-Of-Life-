@@ -8,7 +8,7 @@ public class Player
 		}
 	public void playerCareer()
 		{
-	
+		
 		}
 	public void playerSalary()
 		{
