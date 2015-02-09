@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 public class PlayerCareer extends Spaces
 	{
+	static int randomCareer = (int) (Math.random() * 9);
 	static ArrayList<PlayerCareer> careers = new ArrayList<PlayerCareer>();
-	private String careerName;
+	 String careerName;
 	public PlayerCareer(String n)
 		{
 		careerName = n;
@@ -19,10 +20,13 @@ public class PlayerCareer extends Spaces
 		careers.add(new PlayerCareer("Artist"));
 		careers.add(new PlayerCareer("Salesperson"));
 		}
-	private int randomCareer = (int) (Math.random() * 9);
+	public String getCareer()
+		{
+		return careerName;
+		}
 	@Override
 	public void playerCareer()
 		{
-		System.out.println("Your career is " + careers.get(randomCareer));
+		System.out.println("Your career is: " + careers.get(randomCareer).getCareer());
 		}
 	}

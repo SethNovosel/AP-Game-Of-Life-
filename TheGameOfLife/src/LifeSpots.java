@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 public class LifeSpots extends Spaces
 	{
+	static int randomCard = (int) (Math.random() * 5) + 1;
 	static ArrayList<LifeSpots> lifeCards = new ArrayList<LifeSpots>();
 	private String achievement;
 	private int reward;
@@ -18,10 +19,17 @@ public class LifeSpots extends Spaces
 		lifeCards.add(new LifeSpots("Become President.", 50000));
 		lifeCards.add(new LifeSpots("Nobel Peace Prize.", 50000));
 		}
+	public String getAchievement()
+		{
+		return achievement;
+		}
+	public int getReward()
+		{
+		return reward;
+		}
 	@Override
 	public void lifeCard()
 		{
-		int randomCard = (int) (Math.random() * 6);
-		System.out.println("Your salary is " + lifeCards.get(randomCard));
+		System.out.println("Your life card is: " + lifeCards.get(randomCard).getAchievement() + " Reward: " + lifeCards.get(randomCard).getReward());
 		}
 	}

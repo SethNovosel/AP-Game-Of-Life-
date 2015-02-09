@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 public class Payday extends Spaces
 	{
+	static int randomSalary = (int) (Math.random() * 9);
 	static ArrayList<Payday> salaries = new ArrayList<Payday>();
 	private int salary;
 	private int tax;
@@ -21,15 +22,15 @@ public class Payday extends Spaces
 		salaries.add(new Payday(30000, 10000));
 		salaries.add(new Payday(20000, 5000));
 		}
+	public int getSalary()
+		{
+		return salary;
+		}
 	@Override
 	public void payday()
 		{
-		int randomSalary = (int) (Math.random() * 10);
-		System.out.println("Your salary is " + salaries.get(randomSalary));
+		System.out.println("Your salary is " + salaries.get(randomSalary).getSalary());
 		}
-	public int getSalary()
-		{
-		return this.salary = salary;
-		}
+	
 	}
 

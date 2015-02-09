@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 public class BuyHouse extends Spaces
 	{
 	static ArrayList<BuyHouse> houses = new ArrayList<BuyHouse>();
@@ -21,11 +22,26 @@ public class BuyHouse extends Spaces
 		houses.add(new BuyHouse("Victorian", 200000));
 		houses.add(new BuyHouse("Farm House", 160000));
 		}
-	private int randomHouse = (int) (Math.random() * 9);
+	public String getHouse()
+		{
+		return house; 
+		}
+	public int getPrice()
+		{
+		return price;
+		}
 	@Override
 	public void playerHouse()
 		{
-		System.out.println("Your house is " + houses.get(randomHouse));
+		System.out.println("The houses are:");
+		for(int i = 0; i < houses.size(); i++)
+			{
+			System.out.println(houses.get(i).getHouse() + " " + houses.get(i).getPrice());
+			}
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Which one do you want?");
+		int answer = userInput.nextInt();
+		System.out.println("Your bought the: " + houses.get(answer - 1).getHouse());
 		}
 	}
 
