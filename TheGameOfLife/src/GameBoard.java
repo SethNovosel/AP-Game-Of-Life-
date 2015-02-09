@@ -102,6 +102,14 @@ public class GameBoard extends JPanel
 		g2d.setColor(Color.DARK_GRAY);
 		g2d.fillOval(438, 545, 75, 60);
 		//g2d.drawImage();
+//		switch(TheGameOfLifeRunner.location)
+//			{
+//			case 2:
+//				{
+//				g2d.setColor(Color.PINK);
+//				g2d.fillOval(0, 0, 20, 20);
+//				}
+//			}
 		}
 	public static void main(String[] args) 
 		{
