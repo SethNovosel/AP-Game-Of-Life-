@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class LifeSpots 
+public class LifeSpots extends Spaces
 	{
 	static ArrayList<LifeSpots> lifeCards = new ArrayList<LifeSpots>();
 	private String achievement;
@@ -17,5 +17,11 @@ public class LifeSpots
 		lifeCards.add(new LifeSpots("Paint a masterpiece.", 30000));
 		lifeCards.add(new LifeSpots("Become President.", 50000));
 		lifeCards.add(new LifeSpots("Nobel Peace Prize.", 50000));
+		}
+	@Override
+	public void lifeCard()
+		{
+		int randomCard = (int) (Math.random() * 6);
+		System.out.println("Your salary is " + lifeCards.get(randomCard));
 		}
 	}
