@@ -2,6 +2,7 @@
 import java.util.Scanner;
 public class TheGameOfLifeRunner 
 	{
+	static Player p = new Player("", 100000, 0, "", 0);
 	static int location = 0;
 	public static void main(String[] args) 
 		{
@@ -22,14 +23,19 @@ public class TheGameOfLifeRunner
 			else if(Spaces.allSpaces[location] == "Get Career")
 				{
 				PlayerCareer.addCareers();
+				Payday.addSalaries();
 				new PlayerCareer(null).playerCareer();
+				p.setSalary(Payday.salaries.get(Payday.randomSalary).getSalary());
+				System.out.println("Your salary is: " + p.getWallet());
 				onward();
 				System.out.println();
 				}
 			else if(Spaces.allSpaces[location] == "Payday")
 				{
 				Payday.addSalaries();
-				new Payday(i, i).payday();
+				new Payday(i).payday();
+				p.setWallet(p.getWallet() + p.getSalary());
+				System.out.println("Your earnings are: " + p.getWallet());
 				onward();
 				System.out.println();
 				}
@@ -37,6 +43,8 @@ public class TheGameOfLifeRunner
 				{
 				LifeSpots.addLifeCards();
 				new LifeSpots(null, i).lifeCard();
+				p.setWallet(p.getWallet() + LifeSpots.lifeCards.get(LifeSpots.randomCard).getReward());
+				System.out.println("Your earnings are: " + p.getWallet());
 				onward();
 				System.out.println();
 				}

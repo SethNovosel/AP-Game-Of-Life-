@@ -22,6 +22,10 @@ public class BuyHouse extends Spaces
 		houses.add(new BuyHouse("Victorian", 200000));
 		houses.add(new BuyHouse("Farm House", 160000));
 		}
+	public void setHouse(String house)
+		{
+		this.house = house;
+		}
 	public String getHouse()
 		{
 		return house; 

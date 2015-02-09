@@ -20,6 +20,10 @@ public class PlayerCareer extends Spaces
 		careers.add(new PlayerCareer("Artist"));
 		careers.add(new PlayerCareer("Salesperson"));
 		}
+	public void setCareer(String careerName)
+		{
+		this.careerName = careerName;
+		}
 	public String getCareer()
 		{
 		return careerName;
