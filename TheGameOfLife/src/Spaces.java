@@ -23,10 +23,6 @@ public class Spaces
 		{
 		
 		}
-	public void buyStock() 
-		{
-			
-		}
 	public void haveKids() 
 		{
 		
