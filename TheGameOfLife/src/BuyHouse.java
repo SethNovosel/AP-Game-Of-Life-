@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class BuyHouse extends Spaces
 	{
+	static int answer = 0;
 	static ArrayList<BuyHouse> houses = new ArrayList<BuyHouse>();
 	private String house;
 	private int price;
@@ -35,7 +36,7 @@ public class BuyHouse extends Spaces
 		return price;
 		}
 	@Override
-	public void playerHouse()
+	public int playerHouse()
 		{
 		System.out.println("The houses are:");
 		for(int i = 0; i < houses.size(); i++)
@@ -44,8 +45,9 @@ public class BuyHouse extends Spaces
 			}
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Which one do you want?");
-		int answer = userInput.nextInt();
+		answer = userInput.nextInt();
 		System.out.println("Your bought the: " + houses.get(answer - 1).getHouse());
+		return answer;
 		}
 	}
 

@@ -19,9 +19,9 @@ public class Spaces
 		{
 		
 		}
-	public void playerHouse() 
+	public int playerHouse() 
 		{
-		
+		return 0;
 		}
 	public void haveKids() 
 		{

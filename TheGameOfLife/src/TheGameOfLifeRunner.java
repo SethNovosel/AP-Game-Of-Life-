@@ -58,6 +58,7 @@ public class TheGameOfLifeRunner
 				{
 				BuyHouse.addHouses();
 				new BuyHouse(null, i).playerHouse();
+				p.setWallet(p.getWallet() - BuyHouse.houses.get(BuyHouse.answer - 1).getPrice());
 				onward();
 				System.out.println();
 				}
