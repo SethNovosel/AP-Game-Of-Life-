@@ -7,20 +7,58 @@ public class TheGameOfLifeRunner
 	public static void main(String[] args) 
 		{
 		System.out.println("Welcome to the game of life.");
+		System.out.println("You are now on " + Spaces.allSpaces[location]);
 		int spin = Spinner.playerSpin();
 		move(spin);
 		}
 	public static void move(int s)
 		{
+		System.out.println("You spun the number " + Spinner.spin);
 		for(int i = 0; i < Spaces.allSpaces.length; i++)
 			{
 			System.out.println();
-			System.out.println("You are now on " + Spaces.allSpaces[location]);
-			if(Spaces.allSpaces[location] == "Start")
+			location += s;
+			if(location + s > 18)
 				{
-				onward();
+				location = 18;
+				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				if(Spaces.allSpaces[location] == "Get House")
+					{
+					BuyHouse.addHouses();
+					new BuyHouse(null, i).playerHouse();
+					p.setWallet(p.getWallet() - BuyHouse.houses.get(BuyHouse.answer - 1).getPrice());
+					System.out.println("Your earnings are: " + p.getWallet());
+					onward();
+					System.out.println();
+					}
 				}
-			else if(Spaces.allSpaces[location] == "Normal Space")
+			else if(location + s > 8)
+				{
+				location = 8;
+				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				if(Spaces.allSpaces[location] == "Get Married")
+					{
+					new GetMarried().getSpouse();
+					onward();
+					System.out.println();
+					}
+				}
+		else if(location + s > 2)
+			{
+			location = 2;
+			System.out.println("You are now on " + Spaces.allSpaces[location]);
+			if(Spaces.allSpaces[location] == "Get Career")
+				{
+				PlayerCareer.addCareers();
+				Payday.addSalaries();
+				new PlayerCareer(null).playerCareer();
+				p.setSalary(Payday.salaries.get(Payday.randomSalary).getSalary());
+				System.out.println("Your salary is: " + p.getWallet());
+				onward();
+				System.out.println();
+				}
+			}
+		else if(Spaces.allSpaces[location] == "Normal Space")
 				{
 				onward();
 				System.out.println();
@@ -58,44 +96,6 @@ public class TheGameOfLifeRunner
 				System.out.println();
 				break;
 				}
-			else if(location + s > 18)
-				{
-				location = 18;
-				if(Spaces.allSpaces[location] == "Get House")
-					{
-					BuyHouse.addHouses();
-					new BuyHouse(null, i).playerHouse();
-					p.setWallet(p.getWallet() - BuyHouse.houses.get(BuyHouse.answer - 1).getPrice());
-					System.out.println("Your earnings are: " + p.getWallet());
-					onward();
-					System.out.println();
-					}
-				}
-			else if(location + s > 8)
-				{
-				location = 8;
-				if(Spaces.allSpaces[location] == "Get Married")
-					{
-					new GetMarried().getSpouse();
-					onward();
-					System.out.println();
-					}
-				}
-			else if(location + s > 2)
-				{
-				location = 2;
-				if(Spaces.allSpaces[location] == "Get Career")
-					{
-					PlayerCareer.addCareers();
-					Payday.addSalaries();
-					new PlayerCareer(null).playerCareer();
-					p.setSalary(Payday.salaries.get(Payday.randomSalary).getSalary());
-					System.out.println("Your salary is: " + p.getWallet());
-					onward();
-					System.out.println();
-					}
-				}
-			location += s;
 			}
 		}
 	public static void onward()
