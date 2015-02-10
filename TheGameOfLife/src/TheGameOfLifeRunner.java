@@ -15,18 +15,10 @@ public class TheGameOfLifeRunner
 			{
 			System.out.println();
 			System.out.println("You landed on " + Spaces.allSpaces[location]);
+			if(location != 2 && location != 8 && location != 18)
+			{
 			if(Spaces.allSpaces[location] == "Normal Space")
 				{
-				onward();
-				System.out.println();
-				}
-			else if(Spaces.allSpaces[location] == "Get Career")
-				{
-				PlayerCareer.addCareers();
-				Payday.addSalaries();
-				new PlayerCareer(null).playerCareer();
-				p.setSalary(Payday.salaries.get(Payday.randomSalary).getSalary());
-				System.out.println("Your salary is: " + p.getWallet());
 				onward();
 				System.out.println();
 				}
@@ -48,32 +40,57 @@ public class TheGameOfLifeRunner
 				onward();
 				System.out.println();
 				}
-			else if(Spaces.allSpaces[location] == "Get Married")
-				{
-				new GetMarried().getSpouse();
-				onward();
-				System.out.println();
-				}
-			else if(Spaces.allSpaces[location] == "Get House")
-				{
-				BuyHouse.addHouses();
-				new BuyHouse(null, i).playerHouse();
-				p.setWallet(p.getWallet() - BuyHouse.houses.get(BuyHouse.answer - 1).getPrice());
-				onward();
-				System.out.println();
-				}
 			else if(Spaces.allSpaces[location] == "Have Kid")
 				{
 				new Kids().haveKids();
+				p.setKids(p.getKids() + Kids.answer);
+				System.out.println("You have " + p.getKids() + " kids.");
 				onward();
 				System.out.println();
 				}
 			else if(Spaces.allSpaces[location] == "Retire")
 				{
 				new Retire().retire();
-				onward();
 				System.out.println();
 				break;
+				}
+			}
+			else if(location + s > 2)
+				{
+				location = 2;
+				if(Spaces.allSpaces[location] == "Get Career")
+					{
+					PlayerCareer.addCareers();
+					Payday.addSalaries();
+					new PlayerCareer(null).playerCareer();
+					p.setSalary(Payday.salaries.get(Payday.randomSalary).getSalary());
+					System.out.println("Your salary is: " + p.getWallet());
+					onward();
+					System.out.println();
+					}
+				}
+			else if(location + s > 8)
+				{
+				location = 8;
+				if(Spaces.allSpaces[location] == "Get Married")
+					{
+					new GetMarried().getSpouse();
+					onward();
+					System.out.println();
+					}
+				}
+			else if(location + s > 18)
+				{
+				location = 18;
+				if(Spaces.allSpaces[location] == "Get House")
+					{
+					BuyHouse.addHouses();
+					new BuyHouse(null, i).playerHouse();
+					p.setWallet(p.getWallet() - BuyHouse.houses.get(BuyHouse.answer - 1).getPrice());
+					System.out.println("Your earnings are: " + p.getWallet());
+					onward();
+					System.out.println();
+					}
 				}
 			location += s;
 			}
