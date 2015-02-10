@@ -6,6 +6,7 @@ public class TheGameOfLifeRunner
 	static int location = 0;
 	public static void main(String[] args) 
 		{
+		System.out.println("Welcome to the game of life.");
 		int spin = Spinner.playerSpin();
 		move(spin);
 		}
@@ -14,10 +15,12 @@ public class TheGameOfLifeRunner
 		for(int i = 0; i < Spaces.allSpaces.length; i++)
 			{
 			System.out.println();
-			System.out.println("You landed on " + Spaces.allSpaces[location]);
-			if(location != 2 && location != 8 && location != 18)
-			{
-			if(Spaces.allSpaces[location] == "Normal Space")
+			System.out.println("You are now on " + Spaces.allSpaces[location]);
+			if(Spaces.allSpaces[location] == "Start")
+				{
+				onward();
+				}
+			else if(Spaces.allSpaces[location] == "Normal Space")
 				{
 				onward();
 				System.out.println();
@@ -51,20 +54,19 @@ public class TheGameOfLifeRunner
 			else if(Spaces.allSpaces[location] == "Retire")
 				{
 				new Retire().retire();
+				System.out.println("Your total earnings are: " + p.getWallet());
 				System.out.println();
 				break;
 				}
-			}
-			else if(location + s > 2)
+			else if(location + s > 18)
 				{
-				location = 2;
-				if(Spaces.allSpaces[location] == "Get Career")
+				location = 18;
+				if(Spaces.allSpaces[location] == "Get House")
 					{
-					PlayerCareer.addCareers();
-					Payday.addSalaries();
-					new PlayerCareer(null).playerCareer();
-					p.setSalary(Payday.salaries.get(Payday.randomSalary).getSalary());
-					System.out.println("Your salary is: " + p.getWallet());
+					BuyHouse.addHouses();
+					new BuyHouse(null, i).playerHouse();
+					p.setWallet(p.getWallet() - BuyHouse.houses.get(BuyHouse.answer - 1).getPrice());
+					System.out.println("Your earnings are: " + p.getWallet());
 					onward();
 					System.out.println();
 					}
@@ -79,15 +81,16 @@ public class TheGameOfLifeRunner
 					System.out.println();
 					}
 				}
-			else if(location + s > 18)
+			else if(location + s > 2)
 				{
-				location = 18;
-				if(Spaces.allSpaces[location] == "Get House")
+				location = 2;
+				if(Spaces.allSpaces[location] == "Get Career")
 					{
-					BuyHouse.addHouses();
-					new BuyHouse(null, i).playerHouse();
-					p.setWallet(p.getWallet() - BuyHouse.houses.get(BuyHouse.answer - 1).getPrice());
-					System.out.println("Your earnings are: " + p.getWallet());
+					PlayerCareer.addCareers();
+					Payday.addSalaries();
+					new PlayerCareer(null).playerCareer();
+					p.setSalary(Payday.salaries.get(Payday.randomSalary).getSalary());
+					System.out.println("Your salary is: " + p.getWallet());
 					onward();
 					System.out.println();
 					}

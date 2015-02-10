@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 public class LifeSpots extends Spaces
 	{
 	static int randomCard = (int) (Math.random() * 5) + 1;
@@ -18,6 +18,7 @@ public class LifeSpots extends Spaces
 		lifeCards.add(new LifeSpots("Paint a masterpiece.", 30000));
 		lifeCards.add(new LifeSpots("Become President.", 50000));
 		lifeCards.add(new LifeSpots("Nobel Peace Prize.", 50000));
+		Collections.shuffle(lifeCards);
 		}
 	public String getAchievement()
 		{
@@ -31,5 +32,6 @@ public class LifeSpots extends Spaces
 	public void lifeCard()
 		{
 		System.out.println("Your life card is: " + lifeCards.get(randomCard).getAchievement() + " Reward: " + lifeCards.get(randomCard).getReward());
+		lifeCards.remove(0);
 		}
 	}
