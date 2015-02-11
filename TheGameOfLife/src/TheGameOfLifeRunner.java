@@ -9,9 +9,9 @@ public class TheGameOfLifeRunner
 		{
 		System.out.println("Welcome to the game of life.");
 		System.out.println("You are now on " + Spaces.allSpaces[location]);
-		int spin = Spinner.playerSpin();
 		for(i = 0; i < Spaces.allSpaces.length; i++)
 			{
+			int spin = Spinner.playerSpin();
 			move(spin);
 			}
 		}
