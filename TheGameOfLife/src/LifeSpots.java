@@ -1,7 +1,7 @@
 import java.util.*;
 public class LifeSpots extends Spaces
 	{
-	static int randomCard = (int) (Math.random() * 5) + 1;
+	static int randomCard = (int) (Math.random() * 6);
 	static ArrayList<LifeSpots> lifeCards = new ArrayList<LifeSpots>();
 	private String achievement;
 	private int reward;

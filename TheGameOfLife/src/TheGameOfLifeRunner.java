@@ -4,60 +4,26 @@ public class TheGameOfLifeRunner
 	{
 	static Player p = new Player("", 100000, 0, "", 0);
 	static int location = 0;
+	static int i = 0;
 	public static void main(String[] args) 
 		{
 		System.out.println("Welcome to the game of life.");
 		System.out.println("You are now on " + Spaces.allSpaces[location]);
 		int spin = Spinner.playerSpin();
-		move(spin);
+		for(i = 0; i < Spaces.allSpaces.length; i++)
+			{
+			move(spin);
+			}
 		}
 	public static void move(int s)
 		{
-		System.out.println("You spun the number " + Spinner.spin);
-		for(int i = 0; i < Spaces.allSpaces.length; i++)
-			{
+		//for(int i = 0; i < Spaces.allSpaces.length; i++)
+			//{
+			System.out.println("You spun the number " + s);
 			System.out.println();
-			location += s;
-			if(Spaces.allSpaces[location] == "Normal Space")
+			if(location < 18 && location + s >= 18)
 				{
-				onward();
-				System.out.println();
-				}
-			else if(Spaces.allSpaces[location] == "Payday")
-				{
-				Payday.addSalaries();
-				new Payday(i).payday();
-				p.setWallet(p.getWallet() + p.getSalary());
-				System.out.println("Your earnings are: " + p.getWallet());
-				onward();
-				System.out.println();
-				}
-			else if(Spaces.allSpaces[location] == "Life Space")
-				{
-				LifeSpots.addLifeCards();
-				new LifeSpots(null, i).lifeCard();
-				p.setWallet(p.getWallet() + LifeSpots.lifeCards.get(LifeSpots.randomCard).getReward());
-				System.out.println("Your earnings are: " + p.getWallet());
-				onward();
-				System.out.println();
-				}
-			if(Spaces.allSpaces[location] == "Have Kid")
-				{
-				new Kids().haveKids();
-				p.setKids(p.getKids() + Kids.answer);
-				System.out.println("You have " + p.getKids() + " kids.");
-				onward();
-				System.out.println();
-				}
-			else if(Spaces.allSpaces[location] == "Retire")
-				{
-				new Retire().retire();
-				System.out.println("Your total earnings are: " + p.getWallet());
-				System.out.println();
-				break;
-				}
-			else if(location + s > 18)
-				{
+				location += s;
 				location = 18;
 				System.out.println("You are now on " + Spaces.allSpaces[location]);
 				if(Spaces.allSpaces[location] == "Get House")
@@ -70,31 +36,9 @@ public class TheGameOfLifeRunner
 					System.out.println();
 					}
 				}
-			else if(Spaces.allSpaces[location] == "Normal Space")
+			else if(location < 8 && location + s >= 8)
 				{
-				onward();
-				System.out.println();
-				}
-			else if(Spaces.allSpaces[location] == "Payday")
-				{
-				Payday.addSalaries();
-				new Payday(i).payday();
-				p.setWallet(p.getWallet() + p.getSalary());
-				System.out.println("Your earnings are: " + p.getWallet());
-				onward();
-				System.out.println();
-				}
-			else if(Spaces.allSpaces[location] == "Life Space")
-				{
-				LifeSpots.addLifeCards();
-				new LifeSpots(null, i).lifeCard();
-				p.setWallet(p.getWallet() + LifeSpots.lifeCards.get(LifeSpots.randomCard).getReward());
-				System.out.println("Your earnings are: " + p.getWallet());
-				onward();
-				System.out.println();
-				}
-			else if(location + s > 8)
-				{
+				location += s;
 				location = 8;
 				System.out.println("You are now on " + Spaces.allSpaces[location]);
 				if(Spaces.allSpaces[location] == "Get Married")
@@ -104,34 +48,12 @@ public class TheGameOfLifeRunner
 					System.out.println();
 					}
 				}
-			else if(Spaces.allSpaces[location] == "Normal Space")
+			else if(location < 2 && location + s >= 2)
 				{
-				onward();
-				System.out.println();
-				}
-			else if(Spaces.allSpaces[location] == "Payday")
-				{
-				Payday.addSalaries();
-				new Payday(i).payday();
-				p.setWallet(p.getWallet() + p.getSalary());
-				System.out.println("Your earnings are: " + p.getWallet());
-				onward();
-				System.out.println();
-				}
-			else if(Spaces.allSpaces[location] == "Life Space")
-				{
-				LifeSpots.addLifeCards();
-				new LifeSpots(null, i).lifeCard();
-				p.setWallet(p.getWallet() + LifeSpots.lifeCards.get(LifeSpots.randomCard).getReward());
-				System.out.println("Your earnings are: " + p.getWallet());
-				onward();
-				System.out.println();
-				}
-			else if(location + s > 2)
-				{
+				location += s;
 				location = 2;
 				System.out.println("You are now on " + Spaces.allSpaces[location]);
-				if(Spaces.allSpaces[location] == "Get Career" && location + s > 2)
+				if(Spaces.allSpaces[location] == "Get Career")
 					{
 					PlayerCareer.addCareers();
 					Payday.addSalaries();
@@ -142,12 +64,50 @@ public class TheGameOfLifeRunner
 					System.out.println();
 					}
 				}
-			else if(Spaces.allSpaces[location] == "Normal Space")
+			location += s;
+			if(Spaces.allSpaces[location] == "Normal Space")
 				{
+				System.out.println("You are now on " + Spaces.allSpaces[location]);
 				onward();
 				System.out.println();
 				}
-			}
+			else if(Spaces.allSpaces[location] == "Payday")
+				{
+				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				Payday.addSalaries();
+				new Payday(i).payday();
+				p.setWallet(p.getWallet() + p.getSalary());
+				System.out.println("Your earnings are: " + p.getWallet());
+				onward();
+				System.out.println();
+				}
+			else if(Spaces.allSpaces[location] == "Life Space")
+				{
+				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				LifeSpots.addLifeCards();
+				new LifeSpots(null, i).lifeCard();
+				p.setWallet(p.getWallet() + LifeSpots.lifeCards.get(LifeSpots.randomCard).getReward());
+				System.out.println("Your earnings are: " + p.getWallet());
+				onward();
+				System.out.println();
+				}
+			else if(Spaces.allSpaces[location] == "Have Kid")
+				{
+				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				new Kids().haveKids();
+				p.setKids(p.getKids() + Kids.answer);
+				System.out.println("You have " + p.getKids() + " kids.");
+				onward();
+				System.out.println();
+				}
+			else if(Spaces.allSpaces[location] == "Retire")
+				{
+				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				System.out.println("Your total earnings are: " + p.getWallet());
+				System.out.println();
+				new Retire().retire();
+				}
+			//}
 		}
 	public static void onward()
 		{
