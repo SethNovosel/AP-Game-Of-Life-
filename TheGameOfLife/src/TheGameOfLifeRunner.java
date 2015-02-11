@@ -17,11 +17,19 @@ public class TheGameOfLifeRunner
 		}
 	public static void move(int s)
 		{
-		//for(int i = 0; i < Spaces.allSpaces.length; i++)
-			//{
-			System.out.println("You spun the number " + s);
 			System.out.println();
-			if(location < 18 && location + s >= 18)
+			System.out.println("You spun the number " + s);
+			if(location < 43 && location + s >= 43)
+				{
+				if(Spaces.allSpaces[location] == "Retire")
+					{
+					System.out.println("You are now on " + Spaces.allSpaces[location]);
+					System.out.println("Your total earnings are: " + p.getWallet());
+					System.out.println();
+					new Retire().retire();
+					}
+				}
+			else if(location < 18 && location + s >= 18)
 				{
 				location += s;
 				location = 18;
@@ -64,8 +72,7 @@ public class TheGameOfLifeRunner
 					System.out.println();
 					}
 				}
-			location += s;
-			if(Spaces.allSpaces[location] == "Normal Space")
+			else if(Spaces.allSpaces[location] == "Normal Space")
 				{
 				System.out.println("You are now on " + Spaces.allSpaces[location]);
 				onward();
@@ -100,14 +107,7 @@ public class TheGameOfLifeRunner
 				onward();
 				System.out.println();
 				}
-			else if(Spaces.allSpaces[location] == "Retire")
-				{
-				System.out.println("You are now on " + Spaces.allSpaces[location]);
-				System.out.println("Your total earnings are: " + p.getWallet());
-				System.out.println();
-				new Retire().retire();
-				}
-			//}
+			location += s;
 		}
 	public static void onward()
 		{
