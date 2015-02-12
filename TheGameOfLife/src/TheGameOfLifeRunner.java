@@ -8,7 +8,8 @@ public class TheGameOfLifeRunner
 	public static void main(String[] args) 
 		{
 		System.out.println("Welcome to the game of life.");
-		System.out.println("You are now on " + Spaces.allSpaces[location]);
+		System.out.println("You have $100,000 to start with.");
+		System.out.println("You begin on Start.");
 		for(i = 0; i < Spaces.allSpaces.length; i++)
 			{
 			int spin = Spinner.playerSpin();
@@ -18,23 +19,24 @@ public class TheGameOfLifeRunner
 	public static void move(int s)
 		{
 			System.out.println();
-			System.out.println("You spun the number " + s);
-			if(location < 42 && location + s >= 42)
+			System.out.println("You spun the number " + s + ".");
+			if(location < 41 && location + s >= 41)
 				{
-				location = 42;
+				location += s;
+				location = 41;
 				if(Spaces.allSpaces[location] == "Retire")
 					{
-					System.out.println("You are now on " + Spaces.allSpaces[location]);
-					System.out.println("Your total earnings are: " + p.getWallet());
-					System.out.println();
+					System.out.println("You are now on " + Spaces.allSpaces[location] + ".");
+					System.out.println("Your total earnings are: $" + p.getWallet());
 					new Retire().retire();
 					}
 				}
-			else if(location < 18 && location + s >= 18)
+			else if(location < 17 && location + s >= 17)
 				{
 				location += s;
-				location = 18;
-				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				location = 17;
+				System.out.println("You are now on " + Spaces.allSpaces[location] + ".");
+				System.out.println("Your have $" + p.getWallet() + " to spend.");
 				if(Spaces.allSpaces[location] == "Get House")
 					{
 					BuyHouse.addHouses();
@@ -45,11 +47,11 @@ public class TheGameOfLifeRunner
 					System.out.println();
 					}
 				}
-			else if(location < 8 && location + s >= 8)
+			else if(location < 7 && location + s >= 7)
 				{
 				location += s;
-				location = 8;
-				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				location = 7;
+				System.out.println("You are now on " + Spaces.allSpaces[location] + ".");
 				if(Spaces.allSpaces[location] == "Get Married")
 					{
 					new GetMarried().getSpouse();
@@ -57,54 +59,54 @@ public class TheGameOfLifeRunner
 					System.out.println();
 					}
 				}
-			else if(location < 2 && location + s >= 2)
+			else if(location < 1 && location + s >= 1)
 				{
 				location += s;
-				location = 2;
-				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				location = 1;
+				System.out.println("You are now on " + Spaces.allSpaces[location] + ".");
 				if(Spaces.allSpaces[location] == "Get Career")
 					{
 					PlayerCareer.addCareers();
 					Payday.addSalaries();
 					new PlayerCareer(null).playerCareer();
 					p.setSalary(Payday.salaries.get(Payday.randomSalary).getSalary());
-					System.out.println("Your salary is: " + p.getWallet());
+					System.out.println("Your salary is: $" + Payday.salaries.get(Payday.randomSalary).getSalary() + ".");
 					onward();
 					System.out.println();
 					}
 				}
-			else if(Spaces.allSpaces[location] == "Normal Space")
+			else if(Spaces.allSpaces[location] == "Normal Space" || location + s == 1)
 				{
-				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				System.out.println("You are now on " + Spaces.allSpaces[location] + ".");
 				onward();
 				System.out.println();
 				}
 			else if(Spaces.allSpaces[location] == "Payday")
 				{
-				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				System.out.println("You are now on " + Spaces.allSpaces[location] + ".");
 				Payday.addSalaries();
 				new Payday(i).payday();
 				p.setWallet(p.getWallet() + p.getSalary());
-				System.out.println("Your earnings are: " + p.getWallet());
+				System.out.println("Your earnings are: $" + p.getWallet());
 				onward();
 				System.out.println();
 				}
 			else if(Spaces.allSpaces[location] == "Life Space")
 				{
-				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				System.out.println("You are now on " + Spaces.allSpaces[location]+ ".");
 				LifeSpots.addLifeCards();
 				new LifeSpots(null, i).lifeCard();
 				p.setWallet(p.getWallet() + LifeSpots.lifeCards.get(LifeSpots.randomCard).getReward());
-				System.out.println("Your earnings are: " + p.getWallet());
+				System.out.println("Your earnings are: $" + p.getWallet());
 				onward();
 				System.out.println();
 				}
 			else if(Spaces.allSpaces[location] == "Have Kid")
 				{
-				System.out.println("You are now on " + Spaces.allSpaces[location]);
+				System.out.println("You are now on " + Spaces.allSpaces[location] + ".");
 				new Kids().haveKids();
-				p.setKids(p.getKids() + Kids.answer);
-				System.out.println("You have " + p.getKids() + " kids.");
+				//p.setKids(p.getKids() + Kids.kidCount);
+				System.out.println("You have " + Kids.kidCount + " kid(s).");
 				onward();
 				System.out.println();
 				}

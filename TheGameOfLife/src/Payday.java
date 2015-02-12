@@ -31,7 +31,7 @@ public class Payday extends Spaces
 	@Override
 	public void payday()
 		{
-		System.out.println("Your salary is " + salaries.get(randomSalary).getSalary());
+		System.out.println("Your salary is: $" + salaries.get(randomSalary).getSalary());
 		}
 	
 	}

@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Kids extends Spaces
 	{
+	static int kidCount = 0;
 	static int answer;
 	public void haveKids()
 		{
@@ -11,9 +12,10 @@ public class Kids extends Spaces
 			{
 			System.out.println("Congratulations on your new baby boy!");
 			}
-		else
+		if(answer == 2)
 			{
 			System.out.println("Congratulations on your new baby girl!");
 			}
+		kidCount++;
 		}
 	}
