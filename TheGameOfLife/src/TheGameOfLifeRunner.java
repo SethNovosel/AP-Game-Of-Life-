@@ -19,8 +19,9 @@ public class TheGameOfLifeRunner
 		{
 			System.out.println();
 			System.out.println("You spun the number " + s);
-			if(location < 43 && location + s >= 43)
+			if(location < 42 && location + s >= 42)
 				{
+				location = 42;
 				if(Spaces.allSpaces[location] == "Retire")
 					{
 					System.out.println("You are now on " + Spaces.allSpaces[location]);
