@@ -115,7 +115,7 @@ public class TheGameOfLifeRunner
 	public static void onward()
 		{
 		Scanner userInput = new Scanner(System.in);
-		System.out.println("Press enter to continue");
+		System.out.println("Press enter to continue.");
 		String answer = userInput.nextLine();
 		}
 	}
