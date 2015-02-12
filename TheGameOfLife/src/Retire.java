@@ -12,9 +12,14 @@ public class Retire extends Spaces
 			System.out.println("Congratulations, you are now living peacefully in you mansion in Millionaire Estates!");
 			System.exit(0);
 			}
-		else
+		else if(answer == 2)
 			{
 			System.out.println("Congratulations, you are now living peacefully on your ranch in Countryside Acrers!");
+			System.exit(0);
+			}
+		else
+			{
+			System.out.println("Congratulations, you are now living peacefully on the moon!");
 			System.exit(0);
 			}
 		}

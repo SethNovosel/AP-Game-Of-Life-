@@ -41,7 +41,7 @@ public class BuyHouse extends Spaces
 		System.out.println("The houses are:");
 		for(int i = 0; i < houses.size(); i++)
 			{
-			System.out.println(houses.get(i).getHouse() + " " + houses.get(i).getPrice());
+			System.out.println((i + 1) +  " " + houses.get(i).getHouse() + " $" + houses.get(i).getPrice());
 			}
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Which one do you want?");
