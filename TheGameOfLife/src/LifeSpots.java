@@ -14,10 +14,10 @@ public class LifeSpots extends Spaces
 		{
 		lifeCards.add(new LifeSpots("Run world recod mile.", 10000));
 		lifeCards.add(new LifeSpots("Climb Mt. Everest.", 10000));
-		lifeCards.add(new LifeSpots("Lifetime Achievement Award", 20000));
-		lifeCards.add(new LifeSpots("Paint a masterpiece.", 30000));
-		lifeCards.add(new LifeSpots("Become President.", 50000));
-		lifeCards.add(new LifeSpots("Nobel Peace Prize.", 50000));
+		lifeCards.add(new LifeSpots("Lifetime Achievement Award", 10000));
+		lifeCards.add(new LifeSpots("Paint a masterpiece.", 10000));
+		lifeCards.add(new LifeSpots("Become President.", 10000));
+		lifeCards.add(new LifeSpots("Nobel Peace Prize.", 10000));
 		Collections.shuffle(lifeCards);
 		}
 	public String getAchievement()
